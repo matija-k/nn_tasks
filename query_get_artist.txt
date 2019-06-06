@@ -1,0 +1,45 @@
+{
+    "message": {
+        "body": {
+            "artist": {
+                "artist_alias_list": [
+                    {
+                        "artist_alias": "The Ramones"
+                    },
+                    {
+                        "artist_alias": "\u30e9\u30e2\u30fc\u30f3\u30ba"
+                    },
+                    {
+                        "artist_alias": "Ramones"
+                    },
+                    {
+                        "artist_alias": " The"
+                    }
+                ],
+                "artist_comment": "",
+                "artist_country": "US",
+                "artist_credits": {
+                    "artist_list": []
+                },
+                "artist_id": 7082,
+                "artist_name": "Ramones",
+                "artist_name_translation_list": [
+                    {
+                        "artist_name_translation": {
+                            "language": "EN",
+                            "translation": "The Ramones"
+                        }
+                    }
+                ],
+                "artist_rating": 73,
+                "artist_twitter_url": "",
+                "restricted": 0,
+                "updated_time": "2013-11-05T11:25:06Z"
+            }
+        },
+        "header": {
+            "execute_time": 0.0087690353393555,
+            "status_code": 200
+        }
+    }
+}
