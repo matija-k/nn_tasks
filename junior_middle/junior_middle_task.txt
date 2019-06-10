@@ -1,0 +1,718 @@
+# JuniorMiddle Task - NN
+
+# REST API: MusixMatch - Musixmatch lyrics API is a robust service that permits you to search and retrieve lyrics in the simplest possible way.
+# Authentication method: via API key (key received after registration)
+# API key: 6201b79fbc54d275cd2460be20749b4d
+
+
+######################################################################################################################################################################################
+
+
+# GIT
+
+
+# create repository on GitHub via GitHub's API because this task is all about APIs!
+
+[root@centos homelab_files]# curl -u matija-k https://api.github.com/user/repos -d '{"name":"nn_tasks"}'
+Enter host password for user 'matija-k':
+{
+  "id": 190390718,
+  "node_id": "MDEwOlJlcG9zaXRvcnkxOTAzOTA3MTg=",
+  "name": "nn_tasks",
+  "full_name": "matija-k/nn_tasks",
+  "private": false,
+  "owner": {
+    "login": "matija-k",
+    "id": 49100144,
+    "node_id": "MDQ6VXNlcjQ5MTAwMTQ0",
+    "avatar_url": "https://avatars2.githubusercontent.com/u/49100144?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/matija-k",
+    "html_url": "https://github.com/matija-k",
+    "followers_url": "https://api.github.com/users/matija-k/followers",
+    "following_url": "https://api.github.com/users/matija-k/following{/other_user}",
+    "gists_url": "https://api.github.com/users/matija-k/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/matija-k/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/matija-k/subscriptions",
+    "organizations_url": "https://api.github.com/users/matija-k/orgs",
+    "repos_url": "https://api.github.com/users/matija-k/repos",
+    "events_url": "https://api.github.com/users/matija-k/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/matija-k/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/matija-k/nn_tasks",
+  "description": null,
+  "fork": false,
+  "url": "https://api.github.com/repos/matija-k/nn_tasks",
+  "forks_url": "https://api.github.com/repos/matija-k/nn_tasks/forks",
+  "keys_url": "https://api.github.com/repos/matija-k/nn_tasks/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/matija-k/nn_tasks/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/matija-k/nn_tasks/teams",
+  "hooks_url": "https://api.github.com/repos/matija-k/nn_tasks/hooks",
+  "issue_events_url": "https://api.github.com/repos/matija-k/nn_tasks/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/matija-k/nn_tasks/events",
+  "assignees_url": "https://api.github.com/repos/matija-k/nn_tasks/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/matija-k/nn_tasks/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/matija-k/nn_tasks/tags",
+  "blobs_url": "https://api.github.com/repos/matija-k/nn_tasks/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/matija-k/nn_tasks/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/matija-k/nn_tasks/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/matija-k/nn_tasks/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/matija-k/nn_tasks/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/matija-k/nn_tasks/languages",
+  "stargazers_url": "https://api.github.com/repos/matija-k/nn_tasks/stargazers",
+  "contributors_url": "https://api.github.com/repos/matija-k/nn_tasks/contributors",
+  "subscribers_url": "https://api.github.com/repos/matija-k/nn_tasks/subscribers",
+  "subscription_url": "https://api.github.com/repos/matija-k/nn_tasks/subscription",
+  "commits_url": "https://api.github.com/repos/matija-k/nn_tasks/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/matija-k/nn_tasks/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/matija-k/nn_tasks/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/matija-k/nn_tasks/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/matija-k/nn_tasks/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/matija-k/nn_tasks/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/matija-k/nn_tasks/merges",
+  "archive_url": "https://api.github.com/repos/matija-k/nn_tasks/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/matija-k/nn_tasks/downloads",
+  "issues_url": "https://api.github.com/repos/matija-k/nn_tasks/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/matija-k/nn_tasks/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/matija-k/nn_tasks/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/matija-k/nn_tasks/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/matija-k/nn_tasks/labels{/name}",
+  "releases_url": "https://api.github.com/repos/matija-k/nn_tasks/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/matija-k/nn_tasks/deployments",
+  "created_at": "2019-06-05T12:30:50Z",
+  "updated_at": "2019-06-05T12:30:50Z",
+  "pushed_at": "2019-06-05T12:30:51Z",
+  "git_url": "git://github.com/matija-k/nn_tasks.git",
+  "ssh_url": "git@github.com:matija-k/nn_tasks.git",
+  "clone_url": "https://github.com/matija-k/nn_tasks.git",
+  "svn_url": "https://github.com/matija-k/nn_tasks",
+  "homepage": null,
+  "size": 0,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "language": null,
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": true,
+  "has_pages": false,
+  "forks_count": 0,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 0,
+  "license": null,
+  "forks": 0,
+  "open_issues": 0,
+  "watchers": 0,
+  "default_branch": "master",
+  "permissions": {
+    "admin": true,
+    "push": true,
+    "pull": true
+  },
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "network_count": 0,
+  "subscribers_count": 0
+}
+
+
+# first commit after creating neccessary files and folders
+
+[root@centos nn_tasks]# git commit -m "inital commit"
+[master (root-commit) 9494a62] inital commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+
+
+# testing if GitHub API works
+
+[root@centos homelab_files]# curl -u "matija-k" https://api.github.com
+Enter host password for user 'matija-k':
+{
+  "current_user_url": "https://api.github.com/user",
+  "current_user_authorizations_html_url": "https://github.com/settings/connections/applications{/client_id}",
+  "authorizations_url": "https://api.github.com/authorizations",
+  "code_search_url": "https://api.github.com/search/code?q={query}{&page,per_page,sort,order}",
+  "commit_search_url": "https://api.github.com/search/commits?q={query}{&page,per_page,sort,order}",
+  "emails_url": "https://api.github.com/user/emails",
+  "emojis_url": "https://api.github.com/emojis",
+  "events_url": "https://api.github.com/events",
+  "feeds_url": "https://api.github.com/feeds",
+  "followers_url": "https://api.github.com/user/followers",
+  "following_url": "https://api.github.com/user/following{/target}",
+  "gists_url": "https://api.github.com/gists{/gist_id}",
+  "hub_url": "https://api.github.com/hub",
+  "issue_search_url": "https://api.github.com/search/issues?q={query}{&page,per_page,sort,order}",
+  "issues_url": "https://api.github.com/issues",
+  "keys_url": "https://api.github.com/user/keys",
+  "notifications_url": "https://api.github.com/notifications",
+  "organization_repositories_url": "https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}",
+  "organization_url": "https://api.github.com/orgs/{org}",
+  "public_gists_url": "https://api.github.com/gists/public",
+  "rate_limit_url": "https://api.github.com/rate_limit",
+  "repository_url": "https://api.github.com/repos/{owner}/{repo}",
+  "repository_search_url": "https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}",
+  "current_user_repositories_url": "https://api.github.com/user/repos{?type,page,per_page,sort}",
+  "starred_url": "https://api.github.com/user/starred{/owner}{/repo}",
+  "starred_gists_url": "https://api.github.com/gists/starred",
+  "team_url": "https://api.github.com/teams",
+  "user_url": "https://api.github.com/users/{user}",
+  "user_organizations_url": "https://api.github.com/user/orgs",
+  "user_repositories_url": "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
+  "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
+}
+
+
+# ok, after configuring git and creating inital files, let's add the newly created repo
+
+[root@centos nn_tasks]# git remote add origin https://github.com/matija-k/nn_tasks.git
+
+
+# add something so README.md is not empty
+
+[root@centos nn_tasks]# echo "# nn_tasks" >> README.md
+
+
+#  add changes
+
+[root@centos nn_tasks]# git add .
+
+
+# ...and commit & push!
+
+[root@centos nn_tasks]# git commit -m "updated README.md"
+[master 7f950bb] updated README.md
+ 1 file changed, 1 insertion(+)
+
+[root@centos nn_tasks]# git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': matija-k
+Password for 'https://matija-k@github.com':
+Counting objects: 5, done.
+Writing objects: 100% (3/3), 263 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/matija-k/nn_tasks.git
+   9494a62..7f950bb  master -> master
+
+
+######################################################################################################################################################################################
+
+
+# API QUERIES
+
+
+# API query - GET /artist.search for "ramones"
+
+[root@centos ~]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/artist.search?format=jsonp&callback=callback&q_artist=ramones&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool # sed is being used for removing the "callback" section of JSONP output and Python json.tool for formatting the code
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  5214  100  5214    0     0  13092      0 --:--:-- --:--:-- --:--:-- 13100
+{
+    "message": {
+        "body": {
+            "artist_list": [
+                {
+                    "artist": {
+                        "artist_alias_list": [
+                            {
+                                "artist_alias": "The Ramones"
+                            },
+                            {
+                                "artist_alias": "\u30e9\u30e2\u30fc\u30f3\u30ba"
+                            },
+                            {
+                                "artist_alias": "Ramones"
+                            },
+                            {
+                                "artist_alias": " The"
+                            }
+                        ],
+                        "artist_comment": "",
+                        "artist_country": "US",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 7082,
+                        "artist_name": "Ramones",
+                        "artist_name_translation_list": [
+                            {
+                                "artist_name_translation": {
+                                    "language": "EN",
+                                    "translation": "The Ramones"
+                                }
+                            }
+                        ],
+                        "artist_rating": 73,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2013-11-05T11:25:06Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 24969354,
+                        "artist_name": "The Ramones",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 44,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2013-12-12T16:13:19Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 25007499,
+                        "artist_name": "Los Ramones De Nuevo Leon",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 39,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2015-12-25T01:57:38Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 26575676,
+                        "artist_name": "Marky Ramones Blitzkrieg",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 8,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2015-12-25T01:55:44Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 25092082,
+                        "artist_name": "Adal Ramones",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 11,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2013-12-25T21:36:50Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": [
+                                {
+                                    "artist": {
+                                        "artist_alias_list": [],
+                                        "artist_comment": "",
+                                        "artist_country": "",
+                                        "artist_credits": {
+                                            "artist_list": []
+                                        },
+                                        "artist_id": 25179160,
+                                        "artist_name": "Los Ramones",
+                                        "artist_name_translation_list": [],
+                                        "artist_rating": 10,
+                                        "artist_twitter_url": "",
+                                        "restricted": 0,
+                                        "updated_time": "2013-12-27T13:46:28Z"
+                                    }
+                                },
+                                {
+                                    "artist": {
+                                        "artist_alias_list": [],
+                                        "artist_comment": "",
+                                        "artist_country": "",
+                                        "artist_credits": {
+                                            "artist_list": []
+                                        },
+                                        "artist_id": 36669472,
+                                        "artist_name": "The Kissettes",
+                                        "artist_name_translation_list": [],
+                                        "artist_rating": 1,
+                                        "artist_twitter_url": "",
+                                        "restricted": 0,
+                                        "updated_time": "2018-09-07T16:07:37Z"
+                                    }
+                                }
+                            ]
+                        },
+                        "artist_id": 25359347,
+                        "artist_name": "Los Ramones feat. The Kissettes",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 9,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2018-09-07T16:07:37Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 25465349,
+                        "artist_name": "El Lobo Y Los Ramones",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 6,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2014-01-03T07:49:58Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": [
+                                {
+                                    "artist": {
+                                        "artist_alias_list": [
+                                            {
+                                                "artist_alias": "The Ramones"
+                                            },
+                                            {
+                                                "artist_alias": "\u30e9\u30e2\u30fc\u30f3\u30ba"
+                                            },
+                                            {
+                                                "artist_alias": "Ramones"
+                                            },
+                                            {
+                                                "artist_alias": " The"
+                                            }
+                                        ],
+                                        "artist_comment": "",
+                                        "artist_country": "US",
+                                        "artist_credits": {
+                                            "artist_list": []
+                                        },
+                                        "artist_id": 7082,
+                                        "artist_name": "Ramones",
+                                        "artist_name_translation_list": [
+                                            {
+                                                "artist_name_translation": {
+                                                    "language": "EN",
+                                                    "translation": "The Ramones"
+                                                }
+                                            }
+                                        ],
+                                        "artist_rating": 73,
+                                        "artist_twitter_url": "",
+                                        "restricted": 0,
+                                        "updated_time": "2013-11-05T11:25:06Z"
+                                    }
+                                }
+                            ]
+                        },
+                        "artist_id": 25059429,
+                        "artist_name": "Ramones & The Paley Bros.",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 1,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2013-12-20T21:03:56Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "DE",
+                        "artist_credits": {
+                            "artist_list": []
+                        },
+                        "artist_id": 13810425,
+                        "artist_name": "Hamburg Ram\u00f6nes",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 8,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2015-12-25T01:55:54Z"
+                    }
+                },
+                {
+                    "artist": {
+                        "artist_alias_list": [],
+                        "artist_comment": "",
+                        "artist_country": "",
+                        "artist_credits": {
+                            "artist_list": [
+                                {
+                                    "artist": {
+                                        "artist_alias_list": [
+                                            {
+                                                "artist_alias": "Paley Brothers"
+                                            }
+                                        ],
+                                        "artist_comment": "",
+                                        "artist_country": "",
+                                        "artist_credits": {
+                                            "artist_list": []
+                                        },
+                                        "artist_id": 72151,
+                                        "artist_name": "The Paley Brothers",
+                                        "artist_name_translation_list": [],
+                                        "artist_rating": 8,
+                                        "artist_twitter_url": "",
+                                        "restricted": 0,
+                                        "updated_time": "2013-06-26T10:07:11Z"
+                                    }
+                                },
+                                {
+                                    "artist": {
+                                        "artist_alias_list": [
+                                            {
+                                                "artist_alias": "The Ramones"
+                                            },
+                                            {
+                                                "artist_alias": "\u30e9\u30e2\u30fc\u30f3\u30ba"
+                                            },
+                                            {
+                                                "artist_alias": "Ramones"
+                                            },
+                                            {
+                                                "artist_alias": " The"
+                                            }
+                                        ],
+                                        "artist_comment": "",
+                                        "artist_country": "US",
+                                        "artist_credits": {
+                                            "artist_list": []
+                                        },
+                                        "artist_id": 7082,
+                                        "artist_name": "Ramones",
+                                        "artist_name_translation_list": [
+                                            {
+                                                "artist_name_translation": {
+                                                    "language": "EN",
+                                                    "translation": "The Ramones"
+                                                }
+                                            }
+                                        ],
+                                        "artist_rating": 73,
+                                        "artist_twitter_url": "",
+                                        "restricted": 0,
+                                        "updated_time": "2013-11-05T11:25:06Z"
+                                    }
+                                }
+                            ]
+                        },
+                        "artist_id": 13818629,
+                        "artist_name": "The Paley Brothers & Ramones",
+                        "artist_name_translation_list": [],
+                        "artist_rating": 6,
+                        "artist_twitter_url": "",
+                        "restricted": 0,
+                        "updated_time": "2014-01-14T06:19:47Z"
+                    }
+                }
+            ]
+        },
+        "header": {
+            "available": 97,
+            "execute_time": 0.0045928955078125,
+            "status_code": 200
+        }
+    }
+}
+
+
+# API query - GET /artist.get - more details for The Ramones via artist_id=7082 from previous query 
+
+[root@centos ~]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/artist.get?format=jsonp&callback=callback&artist_id=7082&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   583  100   583    0     0   1342      0 --:--:-- --:--:-- --:--:--  1343
+{
+    "message": {
+        "body": {
+            "artist": {
+                "artist_alias_list": [
+                    {
+                        "artist_alias": "The Ramones"
+                    },
+                    {
+                        "artist_alias": "\u30e9\u30e2\u30fc\u30f3\u30ba"
+                    },
+                    {
+                        "artist_alias": "Ramones"
+                    },
+                    {
+                        "artist_alias": " The"
+                    }
+                ],
+                "artist_comment": "",
+                "artist_country": "US",
+                "artist_credits": {
+                    "artist_list": []
+                },
+                "artist_id": 7082,
+                "artist_name": "Ramones",
+                "artist_name_translation_list": [
+                    {
+                        "artist_name_translation": {
+                            "language": "EN",
+                            "translation": "The Ramones"
+                        }
+                    }
+                ],
+                "artist_rating": 73,
+                "artist_twitter_url": "",
+                "restricted": 0,
+                "updated_time": "2013-11-05T11:25:06Z"
+            }
+        },
+        "header": {
+            "execute_time": 0.0013949871063232,
+            "status_code": 200
+        }
+    }
+}
+
+
+# API query - getting some lyrics
+
+[root@centos nn_tasks]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=can't%20get%20you%20outta%20my%20mind&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1961  100  1961    0     0   3795      0 --:--:-- --:--:-- --:--:--  3800
+{
+    "message": {
+        "body": {
+            "lyrics": {
+                "explicit": 0,
+                "lyrics_body": "I can't get you outta my mind, oh no no\nI can't get you outta my mind, oh no no\n\nI can't get you outta my mind\nI can't get you outta my mind, oh no no, oh no no no, oh\n\nYou said everything would be fine, oh no no\nYou said everything would be fine, oh no no\nI can't get you outta my mind, oh no no no no\n\nI can't get you outta my mind,\nI can't get you outta my mind, oh no no\n...\n\n******* This Lyrics is NOT for Commercial use *******\n(1409618436423)",
+                "lyrics_copyright": "Lyrics powered by www.musixmatch.com. This Lyrics is NOT for Commercial use and only 30% of the lyrics are returned.",
+                "lyrics_id": 7277382,
+                "pixel_tracking_url": "https://tracking.musixmatch.com/t1.0/m_img/e_1/sn_0/l_7277382/su_0/rs_0/tr_3vUCABZuUu9QQ0hUd-LKxF5Eh-T9Stq8huZpmZVShQaziMs7Uj0Z5pC685-QmI8WdtedslEjf7GIQG8qe1qbsfPpoVpSlLRr5JQk2Nw60nrbUkDPrTebMNKvCiGAx8DfvFo9Xkzut381ruXVRUC5F4R65ud_iQ3SgxZRW91R0JVdQLZt8AR1Prt1wjW3-27r8pr71ALN_C1cGhmeuk4GZBsy7EaA4SWM33WsriaWc1vXB0aYi-y_CP5MKHXVPZcYxDdXg0jtODYODF5MwhM5Ohv41peWbl2D6t4SeKNUpOMhzhbahOgl0JpqrfZEaYyfy7W9KfOp7OVgoIE65lLe6l6EJHU_QDhN3VAX9aZkrVLkZgZhBE_PPsnxIQJ_LzBNY8Ie8IqCunE64nHKQDAb7-TnMD5e_DZof4xy2Ars0n_Tyba4A9DDZFgqb6hGWD7pW-zY9ISVR2AowmjhIGYbTGKd/",
+                "script_tracking_url": "https://tracking.musixmatch.com/t1.0/m_js/e_1/sn_0/l_7277382/su_0/rs_0/tr_3vUCALRXp61uDtL0hrJoPvo9R5EFjBYxQ3VExd_zUFlEodnTmhKbl7a5nY4fvtbPOp2tcRX41GIj2H51v43FXJVRqT6vLO3i6Nat3TWnPvq-WaHWDUazRBFFNFCDAqk4tZIJTiyrZBXzqAu4eKx20_OVtyWaC2SUrmhYdN1lao94F9N2Br4ODlqqDyxlflfng0A7RWjoJGN04J-qC0JcuRDNdCzn8gLJ0_cHScHDsMoDC4fzW73-aSI6lcJhKRqJj9KkP-10JwxzYkSEihOp7Lt-FRrmDEy4VJ9t5EtA2MJDvuK_kbPL9iNnGVNTfPLo_Gs0jYUHSoT2IGWJkzqRea1BhqTY7EvrEETi2AkwsoqMNLG-OHpjjnnv-mQoYK14P4AO0tJioM1niKgDcJOWuLwcmb8Evxj4Vy5H7ISi5x7WMWQlQHCAax_iuc9Gm7MPMaYsHXikYuqkfvDQ7omOvOsS/",
+                "updated_time": "2017-07-25T13:29:56Z"
+            }
+        },
+        "header": {
+            "execute_time": 0.10760188102722,
+            "status_code": 200
+        }
+    }
+}
+
+
+# let's get these queries in txt files
+
+[root@centos nn_tasks]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/artist.search?format=jsonp&callback=callback&q_artist=ramones&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool >> query_get_artist_search.txt
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  5214  100  5214    0     0  12443      0 --:--:-- --:--:-- --:--:-- 12443
+
+[root@centos nn_tasks]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/artist.get?format=jsonp&callback=callback&artist_id=7082&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool >> query_get_artist.txt
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   583    0   583    0     0   1471      0 --:--:-- --:--:-- --:--:--  1468
+
+[root@centos nn_tasks]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=can't%20get%20you%20outta%20my%20mind&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool >> query_get_lyrics.txt
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1962  100  1962    0     0   4376      0 --:--:-- --:--:-- --:--:--  4369
+
+
+#################################################################################################
+
+
+# DATA STORE FORMATTING
+
+# Converting to a suitable data store format - XML
+# I'm using a custom command line shell (written in Java) for XML called xmlsh, based on the philosophy and design of the Unix Shells.
+# https://github.com/xmlsh/xmlsh1_3
+
+
+# getting into xmlsh
+
+[root@centos nn_tasks]# xmlsh
+OpenJDK 64-Bit Server VM warning: If the number of processors is expected to increase from one, then you should configure the number of parallel GC threads appropriately using -XX:ParallelGCThreads=N
+$
+
+
+# sample output (i didn't paste the entire file for the sake of tidiness, you can find them in nn_tasks/junior_middle directory, anyway) when creating xml from json files
+
+$ json2xml /root/homelab_files/nn_tasks/junior_middle/query_get_artist_search.txt
+<object xmlns="http://www.xmlsh.org/jxml">
+   <member name="message">
+      <object>
+         <member name="body">
+            <object>
+               <member name="artist_list">
+                  <array>
+                     <object>
+                        <member name="artist">
+                           <object>
+                              <member name="artist_alias_list">
+                                 <array>
+                                    <object>
+                                       <member name="artist_alias">
+                                          <string>The Ramones</string>
+                                       </member>
+                                    </object>
+									...
+
+
+
+
+# ok, let's store results in files
+
+
+$ json2xml /root/homelab_files/nn_tasks/junior_middle/query_get_artist_search.txt >> query_get_artist_search.xml
+$
+$ json2xml /root/homelab_files/nn_tasks/junior_middle/query_get_artist_search.txt >> /root/homelab_files/nn_tasks/query_get_artist_search.xml
+$
+$ json2xml /root/homelab_files/nn_tasks/junior_middle/query_get_artist_search.txt >> /root/homelab_files/nn_tasks/query_get_artist_search.xml
+
+
+
+
+
+
