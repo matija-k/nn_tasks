@@ -28,3 +28,8 @@ for keyword in keywords_list:
 	docs = docs.replace(keyword, keyword + trademark_symbol)
 	with open("acme_docs.txt", "w", encoding="utf-8") as file:
 		file.write(docs)
+
+
+
+
+		
