@@ -1,4 +1,0 @@
-Restart Oracle database after installation of patch#25.
-Restart Unicode database after installation of patch#25.
-Restart Microsoft database after installation of patch#25.
-Restart SAP database after installation of patch#25.
