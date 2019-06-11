@@ -1,15 +1,15 @@
 # JuniorMiddle Task - NN
 
 # REST API: MusixMatch - Musixmatch lyrics API is a robust service that permits you to search and retrieve lyrics in the simplest possible way.
+# https://www.musixmatch.com/
 # Authentication method: via API key (key received after registration)
 # API key: 6201b79fbc54d275cd2460be20749b4d
 
 
 ######################################################################################################################################################################################
 
-
+ 
 # GIT
-
 
 # create repository on GitHub via GitHub's API because this task is all about APIs!
 
@@ -215,9 +215,8 @@ To https://github.com/matija-k/nn_tasks.git
 
 ######################################################################################################################################################################################
 
-
+ 
 # API QUERIES
-
 
 # API query - GET /artist.search for "ramones"
 
@@ -562,7 +561,7 @@ To https://github.com/matija-k/nn_tasks.git
 }
 
 
-# API query - GET /artist.get - more details for The Ramones via artist_id=7082 from previous query 
+# second API query - GET /artist.get - more details for The Ramones via artist_id=7082 from previous query 
 
 [root@centos ~]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/artist.get?format=jsonp&callback=callback&artist_id=7082&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -615,7 +614,7 @@ To https://github.com/matija-k/nn_tasks.git
 }
 
 
-# API query - getting some lyrics
+# third API query - getting some lyrics
 
 [root@centos nn_tasks]# curl -X GET --header "Accept: text/plain" "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=can't%20get%20you%20outta%20my%20mind&apikey=6201b79fbc54d275cd2460be20749b4d" | sed "s/callback(//" | sed "s/);//" | python -m json.tool
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -702,8 +701,8 @@ $ json2xml /root/homelab_files/nn_tasks/junior_middle/query_get_artist_search.tx
 
 
 
-# ok, let's store results in files
 
+# ok, let's store results in files
 
 $ json2xml /root/homelab_files/nn_tasks/junior_middle/query_get_artist_search.txt >> query_get_artist_search.xml
 $
